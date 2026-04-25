@@ -1,6 +1,6 @@
 # Cypress Conditional Tags
 
-🏷️ Access runtime tags (from CLI) and test tags (from config) inside Cypress test logic!
+Access runtime tags (from CLI) and test tags (from config) inside Cypress test logic!
 
 ## ⚠️ Important: What This Plugin Does
 
@@ -33,9 +33,9 @@ Teams end up with:
 
 This makes test suites:
 
-Hard to maintain
-Difficult to scale
-Less readable over time
+- Hard to maintain
+- Difficult to scale
+- Less readable over time
 
 ## The Solution
 
@@ -60,19 +60,17 @@ it('Test Case 01', { tags: ['IS_QA', 'IS_GA'] }, () => {
 
 ## Environment Variable
 
-**Use `conditionalTags`** (not `grepTags`) to pass runtime tags:
+**Use `conditionalTags`** to pass runtime tags:
 
 ```bash
 npx cypress run --env conditionalTags=IS_QA
 ```
 
-**Why separate variable?** This allows independent control when using with `@cypress/grep`:
 ```bash
 # Filter tests with tag2, use tag5+tag6 for conditional logic
-npx cypress run --env grepTags=tag2,conditionalTags=tag5+tag6
+npx cypress run --env conditionalTags=tag5+tag6
 ```
 
-**Backward Compatibility:** The plugin still supports `grepTags` if `conditionalTags` is not provided, but `conditionalTags` is recommended to avoid conflicts.
 
 ## Installation
 
@@ -127,7 +125,6 @@ describe('Login Tests', () => {
 
 ### Running Tests with Tags
 
-**Important**: This plugin provides **conditional logic** based on tags, but does **NOT filter/skip tests**. For test filtering, you need to install `@cypress/grep` separately.
 
 #### Option 1: Conditional Logic Only (This Plugin Standalone)
 Use `conditionalTags` for conditional logic - **all tests will run**:
@@ -205,7 +202,7 @@ Use `Cypress.Tags` for immediate, synchronous access:
 it('should test feature', { tags: ['IS_QA', 'SMOKE'] }, () => {
   // Get runtime tag from CLI
   const runtimeTag = Cypress.Tags.getRuntime()
-  console.log(runtimeTag) // 'IS_QA' (if run with --env grepTags=IS_QA)
+  console.log(runtimeTag) // 'IS_QA' (if run with --env conditionalTags=IS_QA)
   
   // Check if running with specific tag
   if (Cypress.Tags.isRuntime('IS_QA')) {
