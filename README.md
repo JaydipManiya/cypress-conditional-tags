@@ -419,6 +419,5 @@ MIT
 
 ## Support
 
-- 🐛 [Report Issues](https://github.com/yourusername/cypress-conditional-tags/issues)
-- 💬 [Discussions](https://github.com/yourusername/cypress-conditional-tags/discussions)
-- 📖 [Documentation](https://github.com/yourusername/cypress-conditional-tags#readme)
+- 🐛 [Report Issues](https://github.com/JaydipManiya/cypress-conditional-tags/issues)
+- 📖 [Documentation](https://github.com/JaydipManiya/cypress-conditional-tags#readme)

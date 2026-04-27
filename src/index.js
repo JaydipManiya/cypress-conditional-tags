@@ -131,7 +131,7 @@ function matchesRuntimeTag() {
   const runtimeTags = getAllRuntimeTags();
   const testTags = getTestTags();
 
-  if (runtimeTags.length === 0) returntrue; // No runtime filter
+  if (runtimeTags.length === 0) return true; // No runtime filter
 
   return runtimeTags.some(runtimeTag => testTags.includes(runtimeTag));
 }
@@ -158,7 +158,7 @@ function wrapIt(originalIt) {
     // Handle different signatures
     if (typeof configOrFn === 'function') {
       testFn = configOrFn;
-    } elseif (typeof configOrFn === 'object') {
+    } else if (typeof configOrFn === 'object') {
       config = configOrFn;
       testFn = fn;
     }
@@ -193,7 +193,7 @@ function wrapDescribe(originalDescribe) {
     // Handle different signatures
     if (typeof configOrFn === 'function') {
       suiteFn = configOrFn;
-    } elseif (typeof configOrFn === 'object') {
+    } else if (typeof configOrFn === 'object') {
       config = configOrFn;
       suiteFn = fn;
     }
@@ -222,7 +222,7 @@ function setupNodeEvents(on, config) {
 function setupSupport() {
   // Wrap global it/test functions
   if (typeof it !== 'undefined') {
-    constoriginalIt = it;
+    const originalIt = it;
     global.it = wrapIt(originalIt);
     global.test = wrapIt(originalIt);
 

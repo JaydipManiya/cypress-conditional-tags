@@ -8,13 +8,11 @@ This directory contains all tests for the `cypress-conditional-tags` plugin.
 test/
 ├── unit/                           # Unit tests (Mocha/Chai)
 │   ├── plugin.test.js             # All unit tests
-│   └── README.md                  # Unit tests documentation
 ├── e2e/                            # E2E tests (Cypress)
 │   ├── cypress.config.js          # Cypress configuration
 │   ├── plugin-functionality.cy.js # E2E test suite
 │   ├── support/
 │   │   └── e2e.js                 # Support file
-│   └── README.md                  # E2E tests documentation
 └── README.md                      # This file
 ```
 
@@ -38,8 +36,6 @@ test/
 npm run test:unit
 ```
 
-**Details:** See [test/unit/README.md](unit/README.md)
-
 ---
 
 ### 🌐 E2E Tests (`test/e2e/`)
@@ -58,11 +54,16 @@ npm run test:unit
 
 **Run:**
 ```bash
-npm run test:e2e          # Headless
-npm run test:e2e:open     # Interactive
+npm run test:e2e # Headless (uses test/e2e/cypress.config.js) 
+npm run test:e2e:open # Interactive (uses test/e2e/cypress.config.js)
 ```
 
-**Details:** See [test/e2e/README.md](e2e/README.md)
+**Note:** These commands are defined in the root `package.json` and automatically use the correct config file:
+```json
+"test:e2e": "cypress run --config-file test/e2e/cypress.config.js",
+"test:e2e:open": "cypress open --config-file test/e2e/cypress.config.js"
+```
+
 
 ---
 
@@ -79,8 +80,14 @@ This runs both unit and E2E tests sequentially.
 ### Run Specific Test Type
 
 ```bash
-npm run test:unit    # Unit tests only
-npm run test:e2e     # E2E tests only
+npm run test:unit # Unit tests only (uses Mocha) 
+npm run test:e2e # E2E tests only (uses test/e2e/cypress.config.js)
+```
+
+**Note:** These are npm scripts defined in the root `package.json`:
+```json
+"test:unit": "mocha test/unit/**/*.test.js",
+"test:e2e": "cypress run --config-file test/e2e/cypress.config.js"
 ```
 
 
@@ -123,11 +130,17 @@ npm run test:e2e     # E2E tests only
 ### Unit Tests
 
 ```bash
-# Run specific test
+# Run specific test by pattern (uses locally installed mocha)
 npx mocha test/unit/plugin.test.js --grep "should return first tag"
 
+# Or use npm script with grep
+npm run test:unit -- --grep "should return first tag"
+
 # Debug with Node inspector
-node --inspect-brk node_modules/.bin/mocha test/unit/plugin.test.js
+npx --node-options="--inspect-brk" mocha test/unit/plugin.test.js
+
+# Or use node directly
+node --inspect-brk ./node_modules/.bin/mocha test/unit/plugin.test.js
 ```
 
 ### E2E Tests
@@ -148,13 +161,11 @@ DEBUG=cypress:* npm run test:e2e
 - [Main README](../README.md) - Plugin documentation
 - [TESTING.md](../TESTING.md) - Complete testing guide
 - [Examples](../examples/) - Usage examples
-- [Unit Tests README](unit/README.md) - Unit tests details
-- [E2E Tests README](e2e/README.md) - E2E tests details
+
 
 ## Need Help?
 
 - 📖 Check the [main README](../README.md)
-- 🐛 [Report issues](https://github.com/yourusername/cypress-conditional-tags/issues)
-- 💬 [Start a discussion](https://github.com/yourusername/cypress-conditional-tags/discussions)
+- 🐛 [Report issues](https://github.com/JaydipManiya/cypress-conditional-tags/issues)
 
 ---
