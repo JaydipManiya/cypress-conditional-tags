@@ -198,13 +198,8 @@ npx cypress run --env grepTags=tag2,conditionalTags=tag5+tag6
 
 - 📖 Read the [full README](README.md) for detailed documentation
 - 💡 Check [examples](examples/) for more use cases
-- 🧪 Review [test examples](test-setup/cypress/e2e/) for comprehensive testing patterns
-- 📘 See [SOLUTION_DESIGN.md](SOLUTION_DESIGN.md) for architecture details
+- 🧪 Review [test examples](examples/cypress/e2e/) for comprehensive testing patterns
 
-## Need Help?
-
-- 🐛 [Report Issues](https://github.com/yourusername/cypress-conditional-tags/issues)
-- 💬 [Ask Questions](https://github.com/yourusername/cypress-conditional-tags/discussions)
 
 ---
 
