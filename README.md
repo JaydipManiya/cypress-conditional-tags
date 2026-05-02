@@ -26,10 +26,10 @@ What usually happens?
 
 Teams end up with:
 
-❌ Hardcoded values inside tests
-❌ Scattered conditional logic
-❌ Multiple config switches
-❌ Duplicate test cases for different scenarios
+- Hardcoded values inside tests
+- Scattered conditional logic
+- Multiple config switches
+- Duplicate test cases for different scenarios
 
 This makes test suites:
 
@@ -388,7 +388,7 @@ it('should test', { tags: ['IS_QA', 'SMOKE'] }, () => {
 ## How It Works
 
 1. **Tag Storage**: Plugin wraps `it()` to extract tags from test config
-2. **Runtime Access**: Reads `Cypress.env('grepTags')` for CLI-passed tags
+2. **Runtime Access**: Reads `Cypress.env('conditionalTags')` for CLI-passed tags
 3. **API Exposure**: Provides `Cypress.Tags` API and custom commands
 4. **Compatibility**: Works seamlessly with `@cypress/grep`
 
