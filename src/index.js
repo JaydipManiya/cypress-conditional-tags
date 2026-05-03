@@ -40,7 +40,7 @@ function getAllRuntimeTags() {
 
   if (!tags) return [];
 
-  if (typeoftags === 'string') {
+  if (typeof tags === 'string') {
     return tags.split(/[+,]/).map(tag => tag.trim()).filter(Boolean);
   }
 
